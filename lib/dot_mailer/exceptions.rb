@@ -1,22 +1,13 @@
 module DotMailer
-  class Exception < ::Exception
-  end
+  class ImportNotFinished < StandardError; end
 
-  class ImportNotFinished < Exception
-  end
+  class InvalidFromAddress < StandardError; end
 
-  class InvalidFromAddress < Exception
-  end
+  class InvalidRequest < StandardError; end
 
-  class InvalidRequest < Exception
-  end
+  class NotFound < StandardError; end
 
-  class NotFound < Exception
-  end
+  class UnknownDataField < StandardError; end
 
-  class UnknownDataField < Exception
-  end
-
-  class UnknownOptInType < Exception
-  end
+  class UnknownOptInType < StandardError; end
 end
