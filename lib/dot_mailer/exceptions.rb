@@ -1,13 +1,15 @@
 module DotMailer
-  class ImportNotFinished < StandardError; end
+  class DotmailerError < StandardError; end
 
-  class InvalidFromAddress < StandardError; end
+  class ImportNotFinished < DotMailerError; end
 
-  class InvalidRequest < StandardError; end
+  class InvalidFromAddress < DotMailerError; end
 
-  class NotFound < StandardError; end
+  class InvalidRequest < DotMailerError; end
 
-  class UnknownDataField < StandardError; end
+  class NotFound < DotMailerError; end
 
-  class UnknownOptInType < StandardError; end
+  class UnknownDataField < DotMailerError; end
+
+  class UnknownOptInType < DotMailerError; end
 end
