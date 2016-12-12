@@ -1,5 +1,5 @@
 module DotMailer
-  class DotmailerError < StandardError; end
+  class DotMailerError < StandardError; end
 
   class ImportNotFinished < DotMailerError; end
 
