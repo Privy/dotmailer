@@ -7,8 +7,8 @@ module DotMailer
 
     attr_reader :client
 
-    def initialize(api_user, api_pass)
-      self.client = Client.new(api_user, api_pass)
+    def initialize(api_user, api_pass, api_region_id = 'r1')
+      self.client = Client.new(api_user, api_pass, api_region_id)
     end
 
     def data_fields

@@ -6,9 +6,12 @@ require 'restclient'
 
 module DotMailer
   class Client
-    def initialize(api_user, api_pass)
+    attr_accessor :api_user, :api_pass, :api_region_id
+
+    def initialize(api_user, api_pass, api_region_id = 'r1')
       self.api_user = api_user
       self.api_pass = api_pass
+      self.api_region_id = api_region_id
     end
 
     def get(path)
@@ -92,7 +95,6 @@ module DotMailer
     end
 
     private
-    attr_accessor :api_user, :api_pass
 
     def rescue_api_errors
       yield
@@ -110,7 +112,7 @@ module DotMailer
       URI::Generic.build(
         :scheme   => 'https',
         :userinfo => "#{CGI.escape(api_user)}:#{CGI.escape(api_pass)}",
-        :host     => 'api.dotmailer.com',
+        :host     => "#{CGI.escape(api_region_id)}-api.dotmailer.com",
         :path     => "/v2#{path}"
       ).to_s
     end
